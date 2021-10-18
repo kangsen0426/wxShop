@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view>
+    <text class="iconfont icon-shoucang">上的飞机啊是开发环境</text>
+</view>
