@@ -103,6 +103,7 @@ Page({
                 })
             } else {
                 wx.showToast({
+                    icon:"error",
                     title: '商品分类API失效',
                 })
             }

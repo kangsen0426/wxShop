@@ -48,6 +48,7 @@ Page({
         })
       } else {
         wx.showToast({
+          icon:"error",
           title: '轮播图API失效',
         })
       }
@@ -66,6 +67,7 @@ Page({
         })
       } else {
         wx.showToast({
+          icon:"error",
           title: '导航栏API失效',
         })
       }
@@ -84,6 +86,7 @@ Page({
         })
       } else {
         wx.showToast({
+          icon:"error",
           title: '首页楼层API失效',
         })
       }
