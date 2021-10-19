@@ -37,7 +37,7 @@ Page({
 
   getSwiperList() {
     request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+      url: '/home/swiperdata',
       timeout: 2000
     }).then(res => {
       console.log(res.data);
@@ -55,7 +55,7 @@ Page({
   },
   getCatesList() {
     request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems',
+      url: '/home/catitems',
       timeout: 2000
     }).then(res => {
       console.log(res.data);
@@ -73,7 +73,7 @@ Page({
   },
   getFloorList() {
     request({
-      url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata',
+      url: '/home/floordata',
       timeout: 2000
     }).then(res => {
       console.log(res.data);
@@ -84,7 +84,7 @@ Page({
         })
       } else {
         wx.showToast({
-          title: '导航栏API失效',
+          title: '首页楼层API失效',
         })
       }
     })
