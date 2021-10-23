@@ -1,1 +1,75 @@
 /* pages/search/search.wxss */
+page{
+    background-color: #dedede;
+    padding: 20rpx;
+}
+.search_row{
+    height: 60rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_row input{
+    flex: 4;
+    height: 100%;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+    /* text-align: center; */
+    padding-left: 20rpx;
+    background-color: #fff;
+}
+
+.search_row button{
+    flex: 1;
+    height: 100%;
+    font-size: 26rpx;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+
+    background-color: #fff;
+}
+
+.search_content{
+    margin-top: 30rpx;
+}
+
+.goods_item{
+    display: flex;
+    background-color: white;
+    border-radius: 15rpx;
+    margin-bottom: 15rpx;
+    border-bottom: 3rpx solid rgb(253, 239, 239);
+}
+
+.goods_img_wrap{
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.goods_img_wrap image{
+    width: 70%;
+}
+
+.goods_info_wrap{
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.goods_name{
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.goods_price{
+    color: red;
+    font-size: 32rpx;
+}
+

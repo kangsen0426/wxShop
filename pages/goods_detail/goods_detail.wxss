@@ -43,6 +43,10 @@ swiper image{
     border-left: 1rpx solid #dbdbdb;
 }
 
+.icon-shoucang1{
+    color: orange;
+}
+
 .goods_info{
     padding-bottom: 90rpx;
 }

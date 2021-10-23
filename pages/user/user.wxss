@@ -1,1 +1,151 @@
 /* pages/user/user.wxss */
+page{
+    background-color: #edece8;
+}
+.user_info_wrap {
+    height: 40vh;
+    overflow: hidden;
+    background-color: var(--themeColor);
+}
+
+.user_img_wrap {
+    position: relative;
+    background-color: var(--themeColor);
+
+}
+
+.user_bg {
+    height: 50vh;
+    width: 105vw;
+    position: absolute;
+    top: -3vh;
+    left: -3vw;
+    filter: blur(10rpx);
+}
+
+.user_info {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 10vh;
+    text-align: center;
+    /* background-color: pink; */
+}
+
+.user_icon {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+}
+
+.user_name {
+    color: #fff;
+    margin-top: 40rpx;
+    /* font-size: 40rpx; */
+}
+.user_info button{
+    margin-top: 30rpx;
+    border: 1rpx solid #fff;
+    color: #fff;
+}
+
+.user_content{
+    position: relative;
+}
+
+.user_main{
+    position: absolute;
+    width: 90%;
+    left: 50%;
+    transform: translate(-50%);
+    top: -40rpx;
+    padding-bottom: 100rpx;
+
+}
+
+.history_wrap{
+    height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    border-top-left-radius: 16rpx;
+    border-top-right-radius: 16rpx;
+    background-color: #fff;
+
+}
+.history_wrap navigator{
+    flex: 1;
+}
+
+.his_num{
+    color: var(--themeColor);
+}
+
+.his_name{
+    font-size: 24rpx;
+}
+
+.orders_wrap{
+    margin-top: 20rpx;
+    background-color: #fff;
+
+}
+
+.orders_title{
+    padding: 15rpx;
+    border-bottom: 1rpx solid rgb(221, 219, 219);
+
+}
+
+.order_content{
+    display: flex;
+}
+navigator{
+    flex: 1;
+    text-align: center;
+    padding: 10rpx;
+}
+
+navigator .iconfont{
+    font-size: 46rpx;
+    color: var(--themeColor);
+}
+
+.order_name{
+    font-size: 24rpx;
+
+}
+
+.address_wrap{
+    margin-top: 20rpx;
+    background-color: #fff;
+    padding: 20rpx;
+}
+
+.app_info_wrap{
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+.app_info_item{
+    padding: 20rpx;
+    border-bottom: 1rpx solid rgb(221, 219, 219);
+
+}
+
+.app_about{
+    border-bottom: none;
+}
+
+.app_info_contact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.recommend_wrap{
+    background-color: #fff;
+    padding: 20rpx;
+    margin-top: 20rpx;
+    border-bottom-left-radius: 16rpx;
+    border-bottom-right-radius: 16rpx;
+}

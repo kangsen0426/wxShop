@@ -5,6 +5,32 @@ Page({
      * 页面的初始数据
      */
     data: {
+        userinfo: {},
+        collectNum: 0
+    },
+
+    handleGetUserInfo(e) {
+
+        const self = this
+
+        wx.getUserProfile({
+            desc: '获取用户信息',
+            success: (res) => {
+                let userinfo = res.userInfo
+
+
+
+                self.setData({
+                    userinfo
+                })
+                wx.setStorageSync('userinfo', userinfo)
+            }
+        })
+
+
+
+
+
 
     },
 
@@ -26,7 +52,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        const userinfo = wx.getStorageSync('userinfo')
+        const collect = wx.getStorageSync('collect') || []
 
+        this.setData({
+            userinfo,
+            collectNum: collect.length
+        })
     },
 
     /**

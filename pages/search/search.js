@@ -1,11 +1,131 @@
 // pages/search/search.js
+import {
+    request
+} from "../../request/index"
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        goods: [],
+        searchList: [],
+        isFocus:false,
+        inpValue:''
+    },
+    goodsInfo: {},
+    tempList:[],
+    timeID:-1,
 
+    handleInput(e) {
+
+        //防抖
+        clearTimeout(this.timeID);
+
+        const {
+            value
+        } = e.detail
+
+
+
+        if (!value.trim()) {
+            //不合法
+
+            this.setData({
+                isFocus:false,
+                searchList:[]
+            })
+
+            return
+
+        }
+
+        this.setData({
+            isFocus:true
+        })
+
+
+        
+        this.timeID = setTimeout(()=>{
+            //发送请求获取数据
+            this.querySearch(value)
+        },1000)
+
+    },
+
+    handleCancel(){
+        this.setData({
+            inpValue:'',
+            searchList:[]
+        })
+    },
+
+    querySearch(query) {
+
+        this.tempList = []
+
+        request({
+            url: '/goods/qsearch',
+            data: {
+                query
+            },
+            timeout: 2000
+        }).then(res => {
+
+
+            if (res.data.meta.status === 200) {
+
+                console.log(res);
+
+                this.setData({
+                    goods: res.data.message
+                })
+
+
+                for (let i = 0; i < this.data.goods.length; i++) {
+
+                    this.getGoodsDetail(this.data.goods[i].goods_id)
+
+                }
+
+            } else {
+                wx.showToast({
+                    icon: "error",
+                    title: '搜索API失效',
+                })
+            }
+        })
+
+
+    },
+
+    getGoodsDetail(goods_id) {
+        request({
+            url: '/goods/detail',
+            data: {
+                goods_id
+            },
+            timeout: 2000
+        }).then(res => {
+
+            if (res.data.meta.status === 200) {
+
+                this.goodsInfo = res.data.message
+                this.tempList.push(this.goodsInfo)
+                // console.log(this.data.searchList);
+
+                this.setData({
+                    searchList: this.tempList
+                })
+
+            } else {
+                wx.showToast({
+                    icon: "error",
+                    title: '商品详情API失效',
+                })
+            }
+        })
     },
 
     /**

@@ -1,10 +1,56 @@
 // pages/auth/auth.js
+
+import request from "../../request/index"
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+
+    },
+    handlegetUserInfo(e) {
+        //获取用户信息
+        const {
+            encryptedData,
+            rawData,
+            iv,
+            signature
+        } = e.detail
+
+        //获取小程序登入成功后的 code
+        wx.login({
+            timeout: 10000,
+            success: (res) => {
+                const {
+                    code
+                } = result
+
+                const loginParams = {
+                    encryptedData,
+                    rawData,
+                    iv,
+                    signature,
+                    code
+                }
+
+                //发送请求获取token
+                request({
+                    url: "/users/wxlogin",
+                    data: loginParams,
+                    method: "post"
+                }).then(res => {
+                    const {
+                        token
+                    } = res
+
+                    //本地存储
+                    wx.setStorageSync('token', token)
+                })
+
+            }
+        })
 
     },
 

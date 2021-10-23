@@ -1,51 +1,54 @@
 @font-face {
-    font-family: "iconfont"; /* Project id 2875994 */
-    src: url('//at.alicdn.com/t/font_2875994_j2cgw6ur2r.woff2?t=1634555963025') format('woff2'),
-         url('//at.alicdn.com/t/font_2875994_j2cgw6ur2r.woff?t=1634555963025') format('woff'),
-         url('//at.alicdn.com/t/font_2875994_j2cgw6ur2r.ttf?t=1634555963025') format('truetype');
-  }
-  
-  .iconfont {
-    font-family: "iconfont" !important;
-    font-size: 16px;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .icon-shoucang:before {
-    content: "\e600";
-  }
-  
-  .icon-gouwuche:before {
-    content: "\e63f";
-  }
-  
-  .icon-wuliuqiache:before {
-    content: "\e820";
-  }
-  
-  .icon-shouye:before {
-    content: "\e643";
-  }
-  
-  .icon-shoucang1:before {
-    content: "\e86d";
-  }
-  
-  .icon-fenxiang:before {
-    content: "\e624";
-  }
-  
-  .icon-kefu:before {
-    content: "\e625";
-  }
-  
-  .icon-fukuantongzhi:before {
-    content: "\e60c";
-  }
-  
-  .icon-24gl-fileText:before {
-    content: "\eabe";
-  }
-  
+  font-family: "iconfont"; /* Project id 2875994 */
+  src: url('//at.alicdn.com/t/font_2875994_qt6isl6tsn.woff2?t=1634805857593') format('woff2'),
+       url('//at.alicdn.com/t/font_2875994_qt6isl6tsn.woff?t=1634805857593') format('woff'),
+       url('//at.alicdn.com/t/font_2875994_qt6isl6tsn.ttf?t=1634805857593') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon:before {
+  content: "\e686";
+}
+
+.icon-shoucang:before {
+  content: "\e600";
+}
+
+.icon-gouwuche:before {
+  content: "\e63f";
+}
+
+.icon-wuliuqiache:before {
+  content: "\e820";
+}
+
+.icon-shouye:before {
+  content: "\e643";
+}
+
+.icon-shoucang1:before {
+  content: "\e86d";
+}
+
+.icon-fenxiang:before {
+  content: "\e624";
+}
+
+.icon-kefu:before {
+  content: "\e625";
+}
+
+.icon-fukuantongzhi:before {
+  content: "\e60c";
+}
+
+.icon-24gl-fileText:before {
+  content: "\eabe";
+}

@@ -1,2 +1,21 @@
 <!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<view class="search_row">
+    <input bindinput="handleInput" type="text" placeholder="请输入商品名称" value="{{inpValue}}"></input>
+
+    <button hidden="{{!isFocus}}"  bindtap="handleCancel">取消</button>
+</view>
+<view class="search_content">
+    <navigator class="goods_item" wx:for="{{searchList}}" wx:key="goods_id"
+                url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}">
+                <!-- 左侧图片容器 -->
+                <view class="goods_img_wrap">
+                    <image mode="widthFix"
+                        src="{{item.goods_small_logo ? item.goods_small_logo : '../../styles/R-C.jpg'}}"></image>
+                </view>
+                <!-- 右侧商品容器 -->
+                <view class="goods_info_wrap">
+                    <view class="goods_name">{{item.goods_name}}</view>
+                    <view class="goods_price">￥{{item.goods_price}}</view>
+                </view>
+            </navigator>
+</view>

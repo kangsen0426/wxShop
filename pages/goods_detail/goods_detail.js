@@ -10,7 +10,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        goodsDetail: {}
+        goodsDetail: {},
+        isCollect: false
     },
 
     goodsInfo: {},
@@ -36,8 +37,8 @@ Page({
 
         //弹窗提示
         wx.showToast({
-          title: '添加成功',
-          mask:true
+            title: '添加成功',
+            mask: true
         })
     },
 
@@ -71,7 +72,14 @@ Page({
 
                 this.goodsInfo = res.data.message
 
+                //获取缓存中的收藏商品数组
+                let collect = wx.getStorageSync('collect') || []
+
+                //判断当前商品是否被收藏
+                let isCollect = collect.some(v => v.goods_id === this.goodsInfo.goods_id)
+
                 this.setData({
+                    isCollect,
                     goodsDetail: {
                         goods_name: res.data.message.goods_name,
                         goods_price: res.data.message.goods_price,
@@ -87,13 +95,49 @@ Page({
             }
         })
     },
+    handleCollect() {
+        let collect = wx.getStorageSync('collect') || []
+
+        //判断是否收藏过
+        let index = collect.findIndex(v => v.goods_id === this.goodsInfo.goods_id)
+
+        if (index !== -1) {
+            //取消收藏
+            collect.splice(index, 1)
+
+            wx.showToast({
+                icon: "success",
+                title: '取消收藏成功',
+            })
+        } else {
+            //没有收藏过
+            collect.push(this.goodsInfo)
+            wx.showToast({
+                icon: "success",
+                title: '收藏成功',
+            })
+        }
+
+        this.setData({
+            isCollect:!this.data.isCollect
+        })
+
+        //数据添加进缓存
+        wx.setStorageSync('collect', collect)
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    onShow: function () {
+        //获取页面栈
+        let pages = getCurrentPages()
+        let currentPage = pages[pages.length - 1]
+        let options = currentPage.options
         this.getGoodsDetail(options.goods_id)
+
+
+
     },
 
     /**
@@ -103,12 +147,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
 
-    },
 
     /**
      * 生命周期函数--监听页面隐藏
